@@ -7,6 +7,7 @@ export default function ConfirmModal({
   title,
   message,
   confirmLabel,
+  cancelLabel = "Cancel",
   busy,
   onConfirm,
   onCancel,
@@ -41,7 +42,7 @@ export default function ConfirmModal({
             disabled={busy}
             className="btn btn-ghost"
           >
-            Cancel
+            {cancelLabel}
           </button>
           <button
             type="button"
