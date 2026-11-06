@@ -197,7 +197,15 @@ async function StudioDetails({ params }) {
             />
             <FactRow icon={MapPin} label="Location" value={studio.location} />
           </dl>
-          <BookWorkspaceButton />
+          <BookWorkspaceButton
+            studio={{
+              _id: studio._id,
+              title: studio.title,
+              hourlyRate: studio.hourlyRate,
+              securityDeposit: studio.securityDeposit,
+              ownerEmail: studio.ownerEmail,
+            }}
+          />
         </div>
 
         <div className="mt-6 rounded-box border border-base-300 p-6">
