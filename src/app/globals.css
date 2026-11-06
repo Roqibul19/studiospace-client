@@ -1,2 +1,88 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: false;
+}
+
+/* Warm paper and ink, with a darkroom safelight red as the accent. */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #fbf8f2;
+  --color-base-200: #f2ece1;
+  --color-base-300: #e2d9c9;
+  --color-base-content: #211c17;
+  --color-primary: #b93a1e;
+  --color-primary-content: #ffffff;
+  --color-secondary: #2e2a25;
+  --color-secondary-content: #fbf8f2;
+  --color-accent: #b7791f;
+  --color-accent-content: #1c1408;
+  --color-neutral: #2e2a25;
+  --color-neutral-content: #fbf8f2;
+  --color-info: #1f6f8b;
+  --color-info-content: #ffffff;
+  --color-success: #2f7d4f;
+  --color-success-content: #ffffff;
+  --color-warning: #b7791f;
+  --color-warning-content: #1c1408;
+  --color-error: #b3261e;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #15110e;
+  --color-base-200: #1f1a16;
+  --color-base-300: #352d27;
+  --color-base-content: #f3ece2;
+  --color-primary: #f0704d;
+  --color-primary-content: #1d0b05;
+  --color-secondary: #e9e0d3;
+  --color-secondary-content: #15110e;
+  --color-accent: #e0a848;
+  --color-accent-content: #1c1408;
+  --color-neutral: #2a2420;
+  --color-neutral-content: #f3ece2;
+  --color-info: #5cb8d6;
+  --color-info-content: #06222c;
+  --color-success: #5fc48a;
+  --color-success-content: #06230f;
+  --color-warning: #e0a848;
+  --color-warning-content: #1c1408;
+  --color-error: #f2776e;
+  --color-error-content: #2a0705;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
