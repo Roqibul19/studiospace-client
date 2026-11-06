@@ -87,7 +87,8 @@ h4 {
   letter-spacing: -0.02em;
 }
 
-.hero-slider {
+.hero-slider,
+.studio-gallery {
   --swiper-theme-color: #ffffff;
   --swiper-pagination-bullet-inactive-color: #ffffff;
   --swiper-pagination-bullet-inactive-opacity: 0.5;

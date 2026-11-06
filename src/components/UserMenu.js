@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -12,8 +11,8 @@ import {
   PlusCircle,
 } from "lucide-react";
 import { toast } from "sonner";
+import UserAvatar from "@/components/UserAvatar";
 import { authClient } from "@/lib/auth-client";
-import { isValidHttpUrl } from "@/lib/validation";
 
 const MENU_LINKS = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -21,29 +20,6 @@ const MENU_LINKS = [
   { label: "My Studio Listings", href: "/my-listings", icon: LayoutList },
   { label: "My Bookings", href: "/my-bookings", icon: CalendarCheck },
 ];
-
-// The first letter sits behind the photo, so it shows if the photo cannot load.
-function Avatar({ user }) {
-  const [broken, setBroken] = useState(false);
-  const showPhoto = user.image && isValidHttpUrl(user.image) && !broken;
-
-  return (
-    <span className="relative flex size-10 items-center justify-center overflow-hidden rounded-full bg-primary font-semibold text-primary-content ring-2 ring-base-300">
-      {user.name?.charAt(0).toUpperCase() || "U"}
-      {showPhoto && (
-        <Image
-          src={user.image}
-          alt=""
-          width={40}
-          height={40}
-          unoptimized
-          onError={() => setBroken(true)}
-          className="absolute inset-0 size-full object-cover"
-        />
-      )}
-    </span>
-  );
-}
 
 export default function UserMenu({ user }) {
   const router = useRouter();
@@ -102,7 +78,7 @@ export default function UserMenu({ user }) {
         aria-haspopup="menu"
         className="block rounded-full"
       >
-        <Avatar user={user} />
+        <UserAvatar name={user.name} image={user.image} />
       </button>
 
       {open && (
