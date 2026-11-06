@@ -128,6 +128,7 @@ export default function Footer() {
             </Link>
             .
           </p>
+          <p className="mt-1">Developed by Md Roqibul Haque</p>
         </div>
       </div>
     </footer>
