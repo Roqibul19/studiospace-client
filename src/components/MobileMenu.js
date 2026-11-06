@@ -4,10 +4,13 @@ import { Suspense, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import NavLinks, { NavLinkList } from "@/components/NavLinks";
+import { authClient } from "@/lib/auth-client";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const { data: session, isPending } = authClient.useSession();
   const close = () => setOpen(false);
+  const showAuthLinks = !isPending && !session?.user;
 
   return (
     <div className="lg:hidden">
@@ -31,19 +34,23 @@ export default function MobileMenu() {
           id="mobile-menu"
           className="absolute inset-x-0 top-full border-b border-base-300 bg-base-100 px-4 py-3 shadow-lg"
         >
-          <Suspense
-            fallback={<NavLinkList mobile onNavigate={close} />}
-          >
+          <Suspense fallback={<NavLinkList mobile onNavigate={close} />}>
             <NavLinks mobile onNavigate={close} />
           </Suspense>
-          <div className="mt-3 grid grid-cols-2 gap-2 border-t border-base-300 pt-3 sm:hidden">
-            <Link href="/login" onClick={close} className="btn btn-outline">
-              Login
-            </Link>
-            <Link href="/register" onClick={close} className="btn btn-primary">
-              Register
-            </Link>
-          </div>
+          {showAuthLinks && (
+            <div className="mt-3 grid grid-cols-2 gap-2 border-t border-base-300 pt-3 sm:hidden">
+              <Link href="/login" onClick={close} className="btn btn-outline">
+                Login
+              </Link>
+              <Link
+                href="/register"
+                onClick={close}
+                className="btn btn-primary"
+              >
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Link from "next/link";
+import AuthActions from "@/components/AuthActions";
 import Logo from "@/components/Logo";
 import MobileMenu from "@/components/MobileMenu";
 import NavLinks, { NavLinkList } from "@/components/NavLinks";
@@ -22,12 +22,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-1 sm:gap-2">
           <ThemeToggle />
-          <Link href="/login" className="btn btn-ghost hidden sm:inline-flex">
-            Login
-          </Link>
-          <Link href="/register" className="btn btn-primary hidden sm:inline-flex">
-            Register
-          </Link>
+          <AuthActions />
           <MobileMenu />
         </div>
       </nav>
