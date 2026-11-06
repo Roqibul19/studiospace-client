@@ -121,8 +121,12 @@ export default function Footer() {
       <div className="border-t border-base-300">
         <div className="mx-auto max-w-7xl px-4 py-5 text-center text-xs leading-relaxed text-base-content/60 sm:px-6 lg:px-8">
           <p>
-            &copy; 2026 StudioSpace. All rights reserved. By using StudioSpace,
-            you agree to our Terms of Service and Privacy Policy.
+            &copy; 2026 StudioSpace. All rights reserved. Each booking is an
+            agreement between the host and the creator. Please read our{" "}
+            <Link href="/privacy" className="link hover:text-primary">
+              Privacy Policy
+            </Link>
+            .
           </p>
         </div>
       </div>
