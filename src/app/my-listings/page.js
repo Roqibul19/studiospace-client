@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
+import HostRequests from "@/components/bookings/HostRequests";
 import MyListings from "@/components/studios/MyListings";
 
 export const metadata = { title: "My Studio Listings" };
@@ -21,6 +22,7 @@ export default function MyListingsPage() {
         </Link>
       </div>
       <MyListings />
+      <HostRequests />
     </section>
   );
 }
